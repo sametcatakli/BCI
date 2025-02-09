@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply antialiased bg-cover bg-center;
+    }
+}
+
+@layer components {
+    .glassmorphism {
+        @apply bg-white/10 backdrop-blur-lg;
+    }
+    .card-hover {
+        @apply transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
+    }
+    .input-style {
+        @apply px-4 py-2 bg-slate-700/50 border border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-white placeholder-gray-400;
+    }
+    .button-primary {
+        @apply px-6 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-indigo-500;
+    }
+}
