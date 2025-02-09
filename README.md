@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BE-INVESTOR : Une plateforme RSCA moderne  
 
-## Getting Started
+## Introduction  
+BE-INVESTOR est une application belge développée par **Samet Catakli** et **Bodjona Kevin** dans le cadre du **hackathon ETH OXFORD 2025**.  
+Basée sur **Next.js** et exploitant la **blockchain XRPL** avec la monnaie **RLUSD**, elle modernise le concept de la tontine en apportant une solution **numérique innovante et sécurisée**.
 
-First, run the development server:
+## Description  
+BE-INVESTOR repose sur le principe du **Rotating Savings and Credit Association (RSCA)**, un modèle d’épargne et d’investissement collectif utilisé en **Asie, Afrique et parmi les communautés d’immigrés**.  
+Ce système favorise l’épargne sans intermédiaire bancaire ni intérêt, en garantissant **sécurité et transparence** via la blockchain.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+L’application permet aux **entrepreneurs** d’investir mutuellement dans leurs projets en rejoignant des **tontines sécurisées**, gérées par **smart contracts sur XRPL**.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Fonctionnalités principales  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Création de tontine  
+- Définition des paramètres clés : **montant, fréquence, participants, règles de retrait**.  
+- Le **Tontine Master** est responsable de la gestion du groupe.  
 
-## Learn More
+### 2. Adhésion à une tontine  
+- Conditions d’entrée définies (**montant, fréquence, validation par le Tontine Master**).  
+- Fonds convertis en **RLUSD** et sécurisés via **XRPL**.  
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Suivi et gestion des paiements  
+- **Tableau de bord en temps réel**.  
+- **Code couleur** : Vert pour paiement à jour, rouge pour retard.  
+- Transactions **immutables et sécurisées** via XRPL.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Sortie de la tontine  
+- Conditions préétablies de départ.  
+- **Smart contract** garantissant la redistribution des fonds.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Tableau de bord interactif  
+- Vue centralisée des **tontines actives et passées**.  
+- **Statistiques** sur contributions, paiements et gains.  
+- **Messagerie sécurisée** entre membres.  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Avantages et Valeur Ajoutée  
+- **Entraide et solidarité** : Favorise l’investissement collectif.  
+- **Accessibilité** : Pas besoin de compte bancaire ni garanties complexes.  
+- **Sans intérêts** : Alternative aux prêts traditionnels.  
+- **Flexibilité** : Paramètres personnalisables.  
+- **Sécurité renforcée** : **XRPL** assure la transparence et la fiabilité.  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**BE-INVESTOR** met l’accent sur **transparence, collaboration et responsabilité**, offrant aux entrepreneurs une solution moderne et efficace pour **réaliser leurs projets grâce à la force d’un groupe**.
+
+---
+
+## Fonctionnement technique (Partie Samet)  
+
+### Création et gestion des fonds  
+- Un **wallet temporaire** est généré pour chaque tontine, servant de compte dépositaire.  
+- Lors de la création, il faut renseigner **une adresse bénéficiaire** et **une date d’échéance**.  
+- Une **transaction de trustline automatique** est effectuée avec le bénéficiaire pour éviter les problèmes futurs.  
+
+### Clôture automatique des tontines  
+- Un **crontab** (tâche automatisée) tourne **chaque minute** pour clôturer les tontines expirées.  
+- Le **solde total** du wallet tontine est transféré **vers le bénéficiaire**.  
+- Actuellement, une clôture **manuelle** est disponible via un bouton.  
+
+### Évolutions futures  
+- **Tontines continues** : Versement du solde au prochain contributeur au lieu de clôturer.  
+- **Automatisation complète** : Passage du système manuel à un crontab actif.  
+
+---
+
+## Conclusion  
+BE-INVESTOR révolutionne le **système traditionnel des tontines** en offrant une solution **blockchain moderne, transparente et sécurisée**.  
+Elle permet aux **entrepreneurs et investisseurs** de collaborer **sans intermédiaire**, garantissant une **gestion efficace des fonds et une redistribution équitable**.
+
+**Un projet innovant au service de l’investissement collectif !**  
